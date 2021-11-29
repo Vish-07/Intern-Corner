@@ -1,0 +1,207 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+
+  <link rel="stylesheet" href="{% static 'css/maicons.css' %}">
+
+  <link rel="stylesheet" href="{% static 'vendor/animate/animate.css' %}">
+
+  <link rel="stylesheet" href="{% static 'vendor/owl-carousel/css/owl.carousel.css' %}">
+
+  <link rel="stylesheet" href="{% static 'vendor/fancybox/css/jquery.fancybox.css' %}">
+
+  <link rel="stylesheet" href="{% static 'css/theme.css' %}">
+
+  <title>Experiences</title>
+
+
+
+</head>
+<body>
+    <header>
+      <div class="top-bar">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-md-8">
+              <div class="d-inline-block">
+                <span class="mai-mail fg-primary"></span>
+                <a href="mailto:contactus@vnit.ac.in">contactus@vnit.ac.in</a>
+              </div>
+            </div>
+            <div class="col-md-4 text-right d-none d-md-block">
+              <div class="social-mini-button">
+                <a
+                  href="https://www.facebook.com/VisvesvarayaNationalInstituteofTechnology/"
+                  ><span class="mai-logo-facebook-f"></span
+                ></a>
+                <a href="https://twitter.com/vnitn?lang=en"
+                  ><span class="mai-logo-twitter"></span
+                ></a>
+                <a
+                  href="https://www.youtube.com/channel/UC8nVHdLguN04utsTtUfinTg"
+                  ><span class="mai-logo-youtube"></span
+                ></a>
+                <a
+                  href="https://www.linkedin.com/school/visvesvaraya-national-institute-of-technology/?originalSubdomain=in"
+                  ><span class="mai-logo-linkedin"></span
+                ></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- .container -->
+      </div>
+      <!-- .top-bar -->
+
+      <nav class="navbar navbar-expand-lg navbar-light shadow-sm">
+        <div class="container">
+          <a href={% url 'index' %} class="navbar-brand"
+            >Intern <span class="text-primary">Corner</span></a
+          >
+
+          <button
+            class="navbar-toggler"
+            data-toggle="collapse"
+            data-target="#navbarContent"
+            aria-controls="navbarContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="navbar-collapse collapse" id="navbarContent">
+            <ul class="navbar-nav ml-auto pt-3 pt-lg-0">
+              <li class="nav-item">
+                <a href={% url 'index' %} class="nav-link">Home</a>
+              </li>
+
+              {% if user.is_authenticated %}
+              <li class="nav-item">
+                <a href={% url 'add' %} class="nav-link">Add Experience</a>
+              </li>
+              <li class="nav-item">
+                <a href={% url 'experiences' %} class="nav-link">Experiences</a>
+              </li>
+              <li class="nav-item">
+                <a href={% url 'logout' %} class="nav-link">Logout</a>
+              </li>
+              {% else %}
+              <li class="nav-item">
+                <a href={% url 'index' %} class="nav-link">About Us</a>
+              </li>
+              <li class="nav-item">
+                <a href={% url 'register' %} class="nav-link">Register</a>
+              </li>
+              <li class="nav-item">
+                <a href={% url 'login' %} class="nav-link">Login</a>
+              </li>
+              {% endif %}
+            </ul>
+          </div>
+        </div>
+        <!-- .container -->
+      </nav>
+      <!-- .navbar -->
+    </header>
+
+
+
+  <main>
+    <div class="page-section pt-4">
+      <div class="container">
+        <nav aria-label="Breadcrumb">
+          <ol class="breadcrumb bg-transparent mb-4">
+            <li class="breadcrumb-item"><a href="{% url 'index' %}">Home</a></li>
+            <li class="breadcrumb-item"><a href="{% url 'experiences' %}">Experiences</a></li>
+            <li class="breadcrumb-item active" aria-current="page">{{ interns.Position }}</li>
+          </ol>
+        </nav>
+        <div class="row">
+          <div class="col-lg-8">
+            <div class="blog-single-wrap">
+
+              <h2 class="post-title">{{ interns.Company }}</h2>
+              <div class="post-meta">
+                <div class="post-author">
+                  <span class="text-grey">By</span><a> {{interns.Username }} </a>
+                </div>
+              </div>
+              <div class="post-content">
+                <p>{{ interns.Experience }}</p>
+              </div>
+            </div> <!-- .blog-single-wrap -->
+          </div>
+          <div class="col-lg-4">
+            <div class="widget">
+              <div class="widget-box">
+                <h3 class="widget-title">Tips to make the most of intern!</h3>
+                <div class="divider"></div>
+                <div class="blog-item">
+                  <div class="content">
+                    <h6 class="post-title"><a href="https://www.careereducation.columbia.edu/resources/10-tips-make-most-internship">It is always
+                    a good idea to meet with your supervisor at the beginning of the internship to find out what their expectations are for you.
+                    If your supervisor doesn’t set a meeting with you, you should ask for some time to meet.</a></h6>
+                  </div>
+                </div>
+
+                <div class="blog-item">
+                  <div class="content">
+                    <h6 class="post-title"><a href="https://www.inc.com/minda-zetlin/internship-summer-fall-interns-success-tips-advice.html">Take
+                    notes during all meetings and keep to-do lists of tasks and deadlines. Keep your
+                    work space neat so that your work is organized and out of the way when you are not around. Take care to observe data storage
+                    processes—if your organization keeps files in central locations, take note and observe and maintain records in accordance
+                    with policy.</a></h6>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div> <!-- .container -->
+    </div> <!-- .page-section -->
+  </main>
+
+
+    <footer class="page-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-3 py-3">
+            <h3>Intern <span class="fg-primary">Corner</span></h3>
+          </div>
+          <div class="col-lg-3 py-3">
+            <h5>Contact Information</h5>
+            <p>Computer Science and Engineering Department, VNIT Nagpur</p>
+            <p>Email: cse@vnit.ac.in</p>
+            <p>Phone: +00 112323980</p>
+          </div>
+          <div class="col-lg-3 py-3">
+            <h5>Creators</h5>
+            <ul class="footer-menu">
+              <li><a href="#">Vishakha Vikharankar</a></li>
+              <li><a href="#">Pavithra Velpucherla</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-3 py-3">
+            <h5>Enrolment No's</h5>
+            <ul class="footer-menu">
+              <li><a href="#">BT19CSE118</a></li>
+              <li><a href="#">BT19CSE117</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <hr />
+      </div>
+    </footer>
+
+</body>
+</html>
